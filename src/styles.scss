@@ -1,4 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  min-height: 60px;
+}
+
+.max-width {
+  max-width: 1140px;
+}
+
+.content {
+  // min-height: calc(100vh - 150px);
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.a-link {
+  color: aliceblue;
+  &:hover {
+    color: bisque;
+  }
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  min-height: 60px;
+  color: aliceblue;
+}

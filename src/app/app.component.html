@@ -1,5 +1,21 @@
-<nav>
-  <a class="button" routerLink="/home">Strona Główna</a> |
-  <a class="button" routerLink="/ranking">Ranking</a>
-</nav>
+<header class="border-bottom bg-dark navbar-dark shadow-sm text-left">
+  <nav class="max-width mx-auto">
+    <ul ngbNav>
+      <li [ngbNavItem]="1">
+        <a ngbNavLink routerLink="/home" class="a-link">Strona Główna</a>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink routerLink="/ranking" class="a-link">Ranking</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<footer class="border-top bg-dark shadow-sm text-center">
+  <div
+    class="max-width mx-auto d-flex flex-row justify-content-around w-100 mt-2"
+  >
+    <p class="text-left align-self-center">Made by: oknaAnko</p>
+    <p>{{ date }}</p>
+  </div>
+</footer>
 <router-outlet></router-outlet>

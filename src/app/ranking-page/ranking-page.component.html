@@ -1,10 +1,10 @@
-<p>ranking-page works!</p>
-<h2>My Heroes</h2>
-<p>{{ title }}</p>
-<p>{{ season }}</p>
-<ul>
-  <li *ngFor="let standing of standings">
-    {{ standing.note.rank }}
-    {{ standing.team.displayName }}
-  </li>
-</ul>
+<main class="content">
+  <p>{{ title }}</p>
+  <p>{{ season }}</p>
+  <ul>
+    <li *ngFor="let standing of standings">
+      <!-- {{ standing.note.rank }} -->
+      {{ standing.team.displayName }}
+    </li>
+  </ul>
+</main>
