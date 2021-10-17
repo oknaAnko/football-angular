@@ -1,14 +1,32 @@
-<main class="content">
-  <p>{{ title }}</p>
-  <p>{{ season }}</p>
-  <ul>
-    <li *ngFor="let standing of standings">
-      <span *ngIf="standing.note; else noteMissing">{{
-        standing.note.rank
-      }}</span>
-      <ng-template #noteMissing> Brak </ng-template>
+<main class="content max-width mx-auto pt-5">
+  <div class="container">
+    <h2>{{ title }}</h2>
+    <p>sezon: {{ season }}</p>
 
-      {{ standing.team.displayName }}
-    </li>
-  </ul>
+    <div class="row row-cols-3 border-bottom border-1 w-50 pb-2 titles">
+      <div class="col">Miejsce</div>
+      <div class="col">Skrót</div>
+      <div class="col">Nazwa</div>
+    </div>
+
+    <ul>
+      <li
+        class="row row-cols-3 border-bottom border-1 w-50"
+        *ngFor="let standing of standings"
+      >
+        <div class="col py-1">
+          <span *ngIf="standing.note; else noteMissing">{{
+            standing.note.rank
+          }}</span>
+          <ng-template #noteMissing> Brak </ng-template>
+        </div>
+        <div class="col py-1">
+          {{ standing.team.abbreviation }}
+        </div>
+        <div class="col py-1">
+          {{ standing.team.displayName }}
+        </div>
+      </li>
+    </ul>
+  </div>
 </main>
