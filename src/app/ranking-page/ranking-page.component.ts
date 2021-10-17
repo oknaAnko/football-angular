@@ -1,20 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-interface Logos {
-  href: string;
-}
-
 interface Standings {
   note: {
-    // color: string;
-    // description: string;
     rank: number;
   };
   team: {
     abbreviation: string;
     displayName: string;
-    logos: Logos[];
   };
 }
 
@@ -32,11 +25,9 @@ export class RankingPageComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((response: any) => {
-      // console.log('PRODUCT FETCHING', response.premierLeagueData);
       this.title = response.premierLeagueData.data.name;
       this.season = response.premierLeagueData.data.season;
       this.standings = response.premierLeagueData.data.standings;
-      // console.log('PRODUCT FETCHED');
     });
   }
 }
