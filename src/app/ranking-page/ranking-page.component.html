@@ -3,7 +3,11 @@
   <p>{{ season }}</p>
   <ul>
     <li *ngFor="let standing of standings">
-      <!-- {{ standing.note.rank }} -->
+      <span *ngIf="standing.note; else noteMissing">{{
+        standing.note.rank
+      }}</span>
+      <ng-template #noteMissing> Brak </ng-template>
+
       {{ standing.team.displayName }}
     </li>
   </ul>
