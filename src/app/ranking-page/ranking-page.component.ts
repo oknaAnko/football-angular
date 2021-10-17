@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { PremierLeagueDataService } from '../premier-league-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 interface Logos {
   href: string;
@@ -29,14 +28,15 @@ export class RankingPageComponent implements OnInit {
   season: string;
   standings: Standings[];
 
-  constructor(private premierLeagueData: PremierLeagueDataService) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.premierLeagueData.getData().subscribe((data) => {
-      this.title = data.data.name;
-      this.season = data.data.season;
-      this.standings = data.data.standings;
-      console.log('data', data);
+    this.activatedRoute.data.subscribe((response: any) => {
+      // console.log('PRODUCT FETCHING', response.premierLeagueData);
+      this.title = response.premierLeagueData.data.name;
+      this.season = response.premierLeagueData.data.season;
+      this.standings = response.premierLeagueData.data.standings;
+      // console.log('PRODUCT FETCHED');
     });
   }
 }
