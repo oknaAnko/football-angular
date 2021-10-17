@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RankingPageComponent } from '../ranking-page/ranking-page.component';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { ErrorPageComponent } from '../error-page/error-page.component';
 import { DataResolverService } from '../data-resolver.service';
@@ -13,7 +12,10 @@ const routes: Routes = [
   },
   {
     path: 'ranking',
-    component: RankingPageComponent,
+    loadChildren: () =>
+      import('../ranking-page/ranking-page.module').then(
+        (m) => m.RankingPageModule
+      ),
     resolve: { premierLeagueData: DataResolverService },
   },
   { path: '**', component: ErrorPageComponent },
